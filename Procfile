@@ -1,0 +1,1 @@
+web: gunicorn weChatAPI.wsgi --log-file -
