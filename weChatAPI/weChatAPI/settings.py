@@ -24,7 +24,9 @@ SECRET_KEY = 'q69myue=uozz2(2@ss2-94t7#+u7a%%3k1$$8w&41fd7jqvbe)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+if 'DYNO' in os.environ: #runnung on Heroku
+    DEBUG =False
+    
 ALLOWED_HOSTS = ['*']
 
 
@@ -74,8 +76,8 @@ WSGI_APPLICATION = 'weChatAPI.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
+if DEBUG: #Running on the development environment
+    DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': 'wechatdb',
@@ -85,7 +87,10 @@ DATABASES = {
             'PORT':'',
         }
     }
-
+else: #Running on Heroku
+    import dj_database_url
+    DATABASES ={'default':dj_database_url.config()}
+    SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
