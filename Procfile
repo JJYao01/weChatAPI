@@ -1,1 +1,1 @@
-web: gunicorn weChatAPI.wsgi --log-file -
+web: gunicorn --pythonpath weChatAPI weChatAPI.wsgi
