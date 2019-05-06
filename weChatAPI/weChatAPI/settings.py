@@ -25,7 +25,7 @@ SECRET_KEY = 'q69myue=uozz2(2@ss2-94t7#+u7a%%3k1$$8w&41fd7jqvbe)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -74,11 +74,15 @@ WSGI_APPLICATION = 'weChatAPI.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'wechatdb',
+            'USER': 'wechat',
+            'PASSWORD': 'wechat',
+            'HOST':'localhost',
+            'PORT':'',
+        }
     }
-}
 
 
 # Password validation
@@ -103,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-tw'
 
 TIME_ZONE = 'UTC'
 
@@ -118,3 +122,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
