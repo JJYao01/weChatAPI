@@ -27,7 +27,7 @@
             </tr>
           </thead>
           <tbody>
-            {% for order in orders %}
+            {% for order in orders|dictsort:"id" %}
             <tr>
               <td>{{ order.customerName }}</td>
               <td>{{ order.itemName }}</td>
