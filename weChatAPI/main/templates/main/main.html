@@ -28,15 +28,15 @@
             </tr>
           </thead>
           <tbody>
-          {% for article in articles %}
+          {% for order in orders %}
           <tr>
               <td><img src="" alt="" width="60" class="img-rounded">
               </td>
-              <td>{{ orders.id }}</td>
-              <td>{{ orders.customerName }}</td>
-              <td>{{ orders.itemName }}</td>
-              <td>{{ orders.payAmount }}</td>     
-              <td>{{ orders.paydate }}</td>           
+              <td>{{ order.id }}</td>
+              <td>{{ order.customerName }}</td>
+              <td>{{ order.itemName }}</td>
+              <td>{{ order.payAmount }}</td>     
+              <td>{{ order.paydate }}</td>           
             </tr>
           {% endfor %}            
           </tbody>
