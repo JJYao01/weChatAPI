@@ -6,5 +6,5 @@ from payment.serializers import PaymentSerializer
 
 # Create your views here.
 class PaymentViewSet(viewsets.ModelViewSet):
-    queryset = Payment.objects.all()
+    queryset = Payment.objects.all().exclude(customerName__isnull=True).order_by('paydate')
     serializer_class = PaymentSerializer
