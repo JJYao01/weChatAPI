@@ -3,10 +3,49 @@
 <head>
 <title>玉山小程序-DEMO後台</title>
 <meta charset="utf-8">
+<link rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous">
 </head>
 <body>
-<h2>WeChat說 -- Hello world!</h2>
-<a href='/api/'>api</a>
-<p>玉山!!{{ like }}</p>
+  <div class="container">
+    <h2>WeChat說 -- Hello world!</h2>
+    <a href='/api/'>api</a>
+    <p>玉山!!</p>
+    <div class="page-header "></div>
+    <!-- page-header -->
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>訂單編號</th>
+              <th>訂購者</th>
+              <th>項目</th>
+              <th>金額</th>
+              <th>付款時間</th>              
+            </tr>
+          </thead>
+          <tbody>
+          {% for article in articles %}
+          <tr>
+              <td><img src="" alt="" width="60" class="img-rounded">
+              </td>
+              <td>{{ orders.id }}</td>
+              <td>{{ orders.customerName }}</td>
+              <td>{{ orders.itemName }}</td>
+              <td>{{ orders.payAmount }}</td>     
+              <td>{{ orders.paydate }}</td>           
+            </tr>
+          {% endfor %}            
+          </tbody>
+        </table>
+      </div>
+      <!-- col-md-12 -->
+    </div>
+    <!-- /row -->
+  </div>
+  <!-- /container -->
 </body>
 </html>
